@@ -51,28 +51,30 @@ function des(a,b){
 console.log(a.sort(des));
 
 // 编程程序，找出下列数组中出现频率最高的元素。
-var arr = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
-function getMost(arr){
-var hash = {};
-var m = 0; 
-var trueEl;
-var el;
-for(var i = 0,len = arr.length; i < len; i++ ) {
-el = arr[i];
-hash[el] === undefined ? hash[el] = 1 : (hash[el] ++);
-
-if(hash[el] >= m){
-
-    m = hash[el];
-
-    trueEl = el; 
-
+var a = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+var s=[];
+var s2 = {};
+var temp=0;
+var r ="";
+for(var i=0;i<a.length;i++){
+    if(s.indexOf(a[i]) == -1){
+        s.push(a[i]);
+        var num = 1;
+    for(var j=i+1;j<a.length;j++){
+        if (s[s.length-1] == a[j]){
+            num++;
+        }
+    }
+    s2[s[s.length-1]] =num;
+    }  
 }
-
+for(var i=0;i<s.length;i++){
+    if(s2[s[i]] >= temp){
+        temp = s2[s[i]];
+        r=s[i];
+    }
 }
-return trueEl;
-}; 
-console.log(getMost(arr));
+console.log(r);
     </script>
 </body>
 
